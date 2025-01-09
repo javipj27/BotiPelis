@@ -1,0 +1,88 @@
+/* Contenedor general de las películas */
+#lista-peliculas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las películas */
+  gap: 20px; /* Espacio entre las películas */
+  padding: 20px; /* Opcional, para darle algo de espacio alrededor */
+}
+
+/* Estilo de cada película */
+.pelicula {
+  text-align: center; /* Centra el texto (títulos y botones) */
+  width: 300px; /* Define un tamaño fijo para cada película */
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center;
+  gap: 10px; /* Espacio uniforme entre elementos (imagen, título, botones) */
+}
+
+/* Ajustar la imagen para que se vea bien */
+.pelicula img {
+  width: 200px;  /* Ancho de la imagen */
+  height: 320px; /* Alto de la imagen */
+  object-fit: cover; /* Para que la imagen se recorte proporcionalmente */
+  border-radius: 8px; /* Opcional: esquinas redondeadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra para resaltar */
+}
+
+/* Estilo del título */
+.pelicula h3 {
+  margin: 10px 0; /* Espacio entre el título y otros elementos */
+  font-size: 16px;
+  color: #333;
+}
+
+/* Contenedor de los botones */
+.botones {
+  display: flex;
+  justify-content: space-around; /* Espacio uniforme entre botones */
+  width: 100%; /* Asegura que los botones ocupen el mismo ancho */
+  margin-top: 10px; /* Espacio entre el título y los botones */
+}
+
+/* Estilo general de los botones */
+.pelicula button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 45%; /* Cada botón ocupa el 45% del contenedor */
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo del botón de detalles */
+.pelicula .ver-detalles {
+  background-color: #007BFF;
+}
+
+.pelicula .ver-detalles:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo del botón de añadir al carrito */
+.pelicula .anadir-carrito {
+  background-color: #28a745;
+}
+
+.pelicula .anadir-carrito:hover {
+  background-color: #218838;
+}
+
+/* Mensaje de carga (preload) */
+.preload {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
