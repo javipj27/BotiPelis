@@ -37,6 +37,9 @@ function cargarPeliculas() {
                   const anadirCarritoBtn = document.createElement('button');
                   anadirCarritoBtn.textContent = 'Añadir al carrito';
                   anadirCarritoBtn.classList.add('anadir-carrito');
+                  anadirCarritoBtn.addEventListener('click', () => {
+                    anadirAlCarrito(pelicula);
+                  });
 
                   // Agregar botones al contenedor de botones
                   botonesDiv.appendChild(verDetallesBtn);
@@ -74,8 +77,16 @@ function cargarPeliculas() {
                   preload.remove();
               }, 2000);
           }
+          
       })
       .catch(error => console.error('Error al cargar las películas:', error));
+}
+
+// Función para añadir película al carrito
+function anadirAlCarrito(pelicula) {
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  carrito.push(pelicula);
+  localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
 // Llamar a la función al cargar la página
