@@ -1,6 +1,7 @@
 {
   "results": [
     {
+      "id": 1,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/euYIwmwkmz95mnXvufEmbL6ovhZ.jpg",
       "genre_ids": ["Acción", "Aventura", "Drama"],
       "overview": "Dieciséis años después de la muerte de Marco Aurelio, Roma está gobernada por los despiadados emperadores gemelos Geta y Caracalla. El nieto de Aurelio, Lucio Vero, vive bajo el seudónimo de Hanno con su esposa Arishat en el reino norteafricano de Numidia. El ejército romano dirigido por el general Acacio invade y conquista el reino, esclavizando a Lucio junto con otros supervivientes. Los esclavos son llevados a Ostia, donde Lucio es comprado por el maestro de cuadra Macrinus, que le promete la oportunidad de vengarse matando a Acacio si gana suficientes combates para llegar al Coliseo.",
@@ -10,6 +11,7 @@
       "price": 35
     },
     {
+      "id": 2,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
       "genre_names": ["Acción", "Ciencia ficción", "Comedia", "Familia"],
       "overview": "Sonic, Knuckles y Tails se reúnen para enfrentarse a un nuevo y poderoso adversario, Shadow, un misterioso villano cuyos poderes no se parecen a nada de lo que nuestros héroes han conocido hasta ahora. Con sus facultades superadas en todos los sentidos, el Equipo Sonic tendrá que establecer una insólita alianza con la esperanza de detener a Shadow y proteger el planeta.",
@@ -19,6 +21,7 @@
       "price": 20
     },
     {
+      "id": 3,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/k24eZq5I3jyz4htPkZCRpnUmBzE.jpg",
       "genre_names": ["Aventura", "Familia", "Animación"],
       "overview": "El amor entre Noah y Nick parece inquebrantable, a pesar de las maniobras de sus padres por separarles. Pero el trabajo de él y la entrada de ella en la universidad, abre sus vidas a nuevas relaciones. La aparición de una exnovia que busca venganza y de la madre Nick con intenciones poco claras, removerán los cimientos no solo de su relación, sino de la propia familia Leister. Cuando tantas personas están dispuestas a destruir una relación, ¿puede realmente acabar bien?",
@@ -28,6 +31,7 @@
       "price": 19
     },
     {
+      "id": 4,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/oHPoF0Gzu8xwK4CtdXDaWdcuZxZ.jpg",
       "genre_names": ["Aventura", "Familia", "Animación"],
       "overview": "Rafiki debe transmitir la leyenda de Mufasa a la joven cachorro de león Kiara, hija de Simba y Nala, y con Timón y Pumba prestando su estilo característico. Mufasa, un cachorro huérfano, perdido y solo, conoce a un simpático león llamado Taka, heredero de un linaje real. Este encuentro casual pone en marcha un viaje de un extraordinario grupo de inadaptados que buscan su destino.",
@@ -37,6 +41,7 @@
       "price": 48
     },
     {
+      "id": 5,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/vZG7PrX9HmdgL5qfZRjhJsFYEIA.jpg",
       "genre_names": ["Acción", "Ciencia ficción", "Aventura"],
       "overview": "Eddie y Venom están a la fuga. Perseguidos por sus sendos mundos y cada vez más cercados, el dúo se ve abocado a tomar una decisión devastadora que hará que caiga el telón sobre el último baile de Venom y Eddie.",
@@ -46,6 +51,7 @@
       "price": 46
     },
     {
+      "id": 6,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/uKb22E0nlzr914bA9KyA5CVCOlV.jpg",
       "genre_names": ["Drama", "Romance", "Fantasía"],
       "overview": "Ambientada en la Tierra de Oz, mucho antes de la llegada de Dorothy Gale desde Kansas, la trama abarca los acontecimientos del primer acto del musical de Broadway. Elphaba es una joven incomprendida por su inusual color verde que aún no ha descubierto su verdadero poder. Glinda es una popular joven marcada por sus privilegios y su ambición que aún no ha descubierto su verdadera pasión. Las dos se conocen como estudiantes de la Universidad Shiz, en la fantástica Tierra de Oz, y forjan una insólita pero profunda amistad.",
@@ -55,6 +61,7 @@
       "price": 43
     },
     {
+      "id": 7,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/cjEcqdRdPQJhYre3HUAc5538Gk8.jpg",
       "genre_names": ["Acción", "Fantasía", "Comedia"],
       "overview": "Tras el secuestro de Papá Noel (nombre en clave: RED ONE), el Jefe de Seguridad del Polo Norte (Dwayne Johnson) debe formar equipo con el cazarrecompensas más infame del mundo (Chris Evans) en una misión trotamundos llena de acción para salvar la Navidad.",
@@ -64,6 +71,7 @@
       "price": 42
     },
     {
+      "id": 8,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/A6vAMO3myroRfBwSZetY4GVqaW4.jpg",
       "genre_names": ["Animación", "Fantasía", "Acción", "Aventura"],
       "overview": "Explora la \"historia no contada\" del Abismo de Helm, cientos de años antes de la mítica batalla, y de su fundador, Helm Hammerhand, Rey de Rohan.",
@@ -73,6 +81,7 @@
       "price": 39
     },
     {
+      "id": 9,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/tElnmtQ6yz1PjN1kePNl8yMSb59.jpg",
       "genre_names": ["Animación", "Aventura", "Comedia"],
       "overview": "Tras recibir una inesperada llamada de sus antepasados, Vaiana debe viajar a los lejanos mares de Oceanía y adentrarse en peligrosas aguas perdidas para vivir una aventura sin precedentes.",
@@ -82,6 +91,7 @@
       "price": 23
     },
     {
+      "id": 10,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/fzjH7kt1017R9EckLDmWmH5pGhD.jpg",
       "genre_names": ["Acción", "Terror", "Suspense"],
       "overview": "Dos científicos intentan detener una mutación que convierte en hombres lobo a personas que estuvieron expuestas a una superluna el año anterior.",
@@ -91,6 +101,7 @@
       "price": 24
     },
     {
+      "id": 11,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/au3o84ub27qTZiMiEc9UYzN74V3.jpg",
       "genre_names": ["Ciencia ficción", "Suspense", "Terror"],
       "overview": "Un padre soltero y dos mujeres se aventuran desde la seguridad de sus hogares a enfrentarse a criaturas monstruosas para salvar la vida de un niño.",
@@ -99,8 +110,8 @@
       "title": "Elevation",
       "price": 11
     },
-    
     {
+      "id": 12,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/rhc8Mtuo3Kh8CndnlmTNMF8o9pU.jpg",
       "genre_names": ["Acción", "Suspense"],
       "overview": "El día de Nochebuena, un viajero misterioso chantajea a un agente de seguridad del aeropuerto para que le deje subir un objeto peligroso al avión.",
@@ -110,6 +121,7 @@
       "price": 10
     },
     {
+      "id": 13,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/lb2WCbppZ6iHfokg7ccmgjKPKNh.jpg",
       "genre_names": ["Documental"],
       "overview": "Detrás de las cámaras, se muestra cómo se transformó la famosísima serie ‘El juego del calamar’ en un brutal y trepidante reality de competición.",
@@ -119,6 +131,7 @@
       "price": 6
     },
     {
+      "id": 14,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
       "genre_names": ["Animación", "Fantasía", "Aventura"],
       "overview": "El mundo parece estar llegando a su fin, repleto de vestigios de presencia humana. Gato es un animal solitario, pero como su hogar es arrasado por una gran inundación, encuentra refugio en un barco poblado por varias especies, y tendrá que hacer equipo con ellas a pesar de sus diferencias. En el solitario barco que navega por místicos paisajes desbordados, navegan por los desafíos y peligros de adaptarse a este nuevo mundo..",
@@ -128,6 +141,7 @@
       "price": 39
     },
     {
+      "id": 15,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/b0itXhS69X33BvLi7uWjUZQs9MB.jpg",
       "genre_names": ["Terror", "Ciencia ficción"],
       "overview": "\"Tú, pero mejor en todos los sentidos\". Esa es la promesa de la sustancia, un producto revolucionario basado en la división celular, que crea un alter ego más joven, más bello, más perfecto.",
@@ -137,6 +151,7 @@
       "price": 50
     },
     {
+      "id": 16,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/lntyt4OVDbcxA1l7LtwITbrD3FI.jpg",
       "genre_names": ["Romance", "Drama"],
       "overview": "Noah debe dejar su ciudad, novio y amigos para mudarse a la mansión de William Leister, el flamante y rico marido de su madre Rafaela. Por otro lado, con 17 años, orgullosa e independiente, Noah se resiste a vivir en una mansión rodeada de lujo. Allí conoce a Nick, su nuevo hermanastro, y el choque de sus fuertes personalidades se hace evidente desde el primer momento.",
@@ -146,6 +161,7 @@
       "price": 41
     },
     {
+      "id": 17,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/uWOJbarUXfVf6B4o0368dh138eR.jpg",
       "genre_names": ["Drama", "Terror", "Fantasia"],
       "overview": "Historia gótica de obsesión entre una joven hechizada y el aterrador vampiro encaprichado de ella, que causa un indescriptible terror a su paso.",
@@ -155,6 +171,7 @@
       "price": 42
     },
     {
+      "id": 18,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/A28EE0vgHrB0OdoxWWMfgfyEoYn.jpg",
       "genre_names": ["Crimen", "Suspense", "Acción"],
       "overview": "Tras perder su emporio de la droga, Ferry Bouman parece haber encontrado la paz lejos de los bajos fondos de Brabante... hasta que el pasado llama a su puerta.",
@@ -164,6 +181,7 @@
       "price": 16
     },
     {
+      "id": 19,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/6amNYUYvoKsZbg8vE00Yzt9Xn7H.jpg",
       "genre_names": ["Acción", "Comedia", "Ciencia ficción"],
       "overview": "Un apático Wade Wilson se afana en la vida civil tras dejar atrás sus días como Deadpool, un mercenario moralmente flexible. Pero cuando su mundo natal se enfrenta a una amenaza existencial, Wade debe volver a vestirse a regañadientes con un Lobezno aún más reacio a ayudar.",
@@ -172,44 +190,48 @@
       "title": "Deadpool y Lobezno",
       "price": 17
     },
-    
-        {
-          "backdrop_path": "https://image.tmdb.org/t/p/w500/8DwV1DCZtqJNkEsRWE1d0ZmI2Is.jpg",
-          "genre_names": ["Animación", "Comedia", "Familia", "Aventura"],
-          "overview": "El superperro Gromit entra en acción para salvar a su amo cuando Wallace pierde el control de su sofisticado invento y acaba acusado de una serie de crímenes sospechosos.",
-          "poster_path": "https://image.tmdb.org/t/p/w500/e4YIxQEoz2lwZA3WLtFzAogxl44.jpg",
-          "release_date": "2024-12-18",
-          "title": "Wallace y Gromit: La venganza se sirve con plumas",
-          "price": 4
-        },
-        {
-          "backdrop_path": "https://image.tmdb.org/t/p/w500/6lE2e6j8qbtQR8aHxQNJlwxdmKV.jpg",
-          "genre_names": ["Acción", "Crimen", "Suspense"],
-          "overview": "Un curtido y peligroso gangster (Liam Neeson) descubre que está empezando a perder la memoria. Decidido a enmendar las cosas con su hija y rectificar los errores del pasado, antes de que sea demasiado tarde intentará hacer lo que sea para redimirse. Pero las garras del mundo criminal no lo soltarán tan fácilmente y se verá obligado a enfrentarse a la organización para la que lleva más de 20 años trabajando.",
-          "poster_path": "https://image.tmdb.org/t/p/w500/6QsBGrKAs6pgypqkqVVyHICJnpY.jpg",
-          "release_date": "2024-10-31",
-          "title": "Absolution",
-          "price": 7
-        },
-        {
-          "backdrop_path": "https://image.tmdb.org/t/p/w500/1pmXyN3sKeYoUhu5VBZiDU4BX21.jpg",
-          "genre_names": ["Animación", "Acción", "Ciencia ficción", "Familia"],
-          "overview": "Esta aventura épica cuenta la historia de una robot, Rozzum 7-1-3-4, \"Roz\" para abreviar, que naufraga en una isla inhabitada y debe aprender a adaptarse a los entornos rigurosos construyendo relaciones con los animales de la isla y convirtiéndose en la madre adoptiva de una cría de ganso huérfana.",
-          "poster_path": "https://image.tmdb.org/t/p/w500/a0a7RC01aTa7pOnskgJb3mCD2Ba.jpg",
-          "release_date": "2024-09-12",
-          "title": "Robot salvaje",
-          "price": 2
-        },
-        {
-          "backdrop_path": "https://image.tmdb.org/t/p/w500/ag66gJCiZ06q1GSJuQlhGLi3Udx.jpg",
-          "genre_names": ["Terror", "Suspense"],
-          "overview": "Dos jóvenes misioneras se ven obligadas a demostrar su fe cuando llaman a la puerta equivocada y son recibidas por el diabólico Sr. Reed (Hugh Grant). Los tres se verán envueltos en un brutal juego del gato y el ratón durante una larga noche de tormenta.",
-          "poster_path": "https://image.tmdb.org/t/p/w500/tXD5OCA0APsQNcjVdyl9COrwTfx.jpg",
-          "release_date": "2024-10-31",
-          "title": "Heretic",
-          "price": 15
-        },
     {
+      "id": 20,
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/8DwV1DCZtqJNkEsRWE1d0ZmI2Is.jpg",
+      "genre_names": ["Animación", "Comedia", "Familia", "Aventura"],
+      "overview": "El superperro Gromit entra en acción para salvar a su amo cuando Wallace pierde el control de su sofisticado invento y acaba acusado de una serie de crímenes sospechosos.",
+      "poster_path": "https://image.tmdb.org/t/p/w500/e4YIxQEoz2lwZA3WLtFzAogxl44.jpg",
+      "release_date": "2024-12-18",
+      "title": "Wallace y Gromit: La venganza se sirve con plumas",
+      "price": 4
+    },
+    {
+      "id": 21,
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/6lE2e6j8qbtQR8aHxQNJlwxdmKV.jpg",
+      "genre_names": ["Acción", "Crimen", "Suspense"],
+      "overview": "Un curtido y peligroso gangster (Liam Neeson) descubre que está empezando a perder la memoria. Decidido a enmendar las cosas con su hija y rectificar los errores del pasado, antes de que sea demasiado tarde intentará hacer lo que sea para redimirse. Pero las garras del mundo criminal no lo soltarán tan fácilmente y se verá obligado a enfrentarse a la organización para la que lleva más de 20 años trabajando.",
+      "poster_path": "https://image.tmdb.org/t/p/w500/6QsBGrKAs6pgypqkqVVyHICJnpY.jpg",
+      "release_date": "2024-10-31",
+      "title": "Absolution",
+      "price": 7
+    },
+    {
+      "id": 22,
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/1pmXyN3sKeYoUhu5VBZiDU4BX21.jpg",
+      "genre_names": ["Animación", "Acción", "Ciencia ficción", "Familia"],
+      "overview": "Esta aventura épica cuenta la historia de una robot, Rozzum 7-1-3-4, \"Roz\" para abreviar, que naufraga en una isla inhabitada y debe aprender a adaptarse a los entornos rigurosos construyendo relaciones con los animales de la isla y convirtiéndose en la madre adoptiva de una cría de ganso huérfana.",
+      "poster_path": "https://image.tmdb.org/t/p/w500/a0a7RC01aTa7pOnskgJb3mCD2Ba.jpg",
+      "release_date": "2024-09-12",
+      "title": "Robot salvaje",
+      "price": 2
+    },
+    {
+      "id": 23,
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/ag66gJCiZ06q1GSJuQlhGLi3Udx.jpg",
+      "genre_names": ["Terror", "Suspense"],
+      "overview": "Dos jóvenes misioneras se ven obligadas a demostrar su fe cuando llaman a la puerta equivocada y son recibidas por el diabólico Sr. Reed (Hugh Grant). Los tres se verán envueltos en un brutal juego del gato y el ratón durante una larga noche de tormenta.",
+      "poster_path": "https://image.tmdb.org/t/p/w500/tXD5OCA0APsQNcjVdyl9COrwTfx.jpg",
+      "release_date": "2024-10-31",
+      "title": "Heretic",
+      "price": 15
+    },
+    {
+      "id": 24,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/rFKbPDXBzgn4eYBdJXaAPEYIcyA.jpg",
       "genre_names": ["Drama", "Comedia"],
       "overview": "Hasta el cuello de deudas, dos hermanos trazan un plan para estafar a una rica heredera y salvar su hogar en Nápoles, hasta que el amor complica sus planes.",
@@ -219,6 +241,7 @@
       "price": 13
     },
     {
+      "id": 25,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/nGC3ZkXEcjGbqAAonS1xn6gaNpb.jpg",
       "genre_names": ["Drama", "Comedia"],
       "overview": "Dos primos viajan a Polonia tras la muerte de su abuela para ver de dónde vienen y acaban incorporándose a un tour sobre el Holocausto.",
@@ -228,6 +251,7 @@
       "price": 12
     },
     {
+      "id": 26,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/p5ozvmdgsmbWe0H8Xk7Rc8SCwAB.jpg",
       "genre_names": ["Animación", "Aventura", "Comedia", "Familia"],
       "overview": "Riley entra en la adolescencia y el Cuartel General de su cabeza sufre una repentina reforma para hacerle hueco a algo totalmente inesperado propio de la pubertad: ¡nuevas emociones! Alegría, Tristeza, Ira, Miedo y Asco, con años de impecable gestión a sus espaldas (según ellos...) no saben muy bien qué sentir cuando aparece con enorme ímpetu Ansiedad. Y no viene sola: le acompañan envidia, vergüenza y aburrimiento. Secuela de 'Inside Out'.",
@@ -237,6 +261,7 @@
       "price": 38
     },
     {
+      "id": 27,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/lgkPzcOSnTvjeMnuFzozRO5HHw1.jpg",
       "genre_names": ["Animación", "Familia", "Comedia", "Ciencia ficción"],
       "overview": "Gru, Lucy y las niñas -Margo, Edith y Agnes- dan la bienvenida a un nuevo miembro en la familia: Gru Junior, que parece llegar con el propósito de ser un suplicio para su padre. Gru tendrá que enfrentarse en esta ocasión a su nueva némesis Maxime Le Mal y su sofisticada y malévola novia Valentina, lo que obligará a la familia a tener que darse a la fuga. Cuarta entrega de 'Gru, mi villano favorito'.",
@@ -246,6 +271,7 @@
       "price": 36
     },
     {
+      "id": 28,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/evFChfYeD2LqobEJf8iQsrYcGTw.jpg",
       "genre_names": ["Acción", "Crimen", "Suspense"],
       "overview": "Un padre y un hijo trabajan como guardias de seguridad para una empresa de camiones blindados. Cuando se encuentran con un equipo de posibles ladrones mientras están atrapados en un puente, deben idear un plan para escapar y asegurar su supervivencia.",
@@ -255,6 +281,7 @@
       "price": 22
     },
     {
+      "id": 29,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/lTYGtgDRygku7iiFLWyiEc4wLzz.jpg",
       "genre_names": ["Drama", "Acción", "Terror"],
       "overview": "Cuando una especie de rabia que transforma a la gente en criaturas agresivas se extiende por el planeta, Manel se aísla en casa con su gato, recurriendo a su ingenio para sobrevivir; pero pronto deberán salir a buscar comida, por tierra y por mar, sorteando muchos peligros.",
@@ -264,6 +291,7 @@
       "price": 8
     },
     {
+      "id": 30,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/v9Du2HC3hlknAvGlWhquRbeifwW.jpg",
       "genre_names": ["Acción", "Aventura", "Suspense"],
       "overview": "Kraven, un hombre cuya compleja relación con su despiadado padre, Nikolai Kravinoff, le hace emprender un camino de venganza con brutales consecuencias, motivándole a convertirse no sólo en el mejor cazador del mundo, sino también en uno de los más temidos.",
@@ -273,6 +301,7 @@
       "price": 12
     },
     {
+      "id": 31,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/awNgj3l5f1X6A0oCBnFl99X2K9R.jpg",
       "genre_names": ["Crimen", "Suspense", "Western"],
       "overview": "Peter Dinklage protagoniza este violento wéstern de venganza, ambientado en la Era del Petróleo en Texas a principios del siglo XX. En un mundo de pozos petrolíferos, sangre y redención, interpreta a un cazarrecompensas elocuente y resentido que ayuda a un joven a rescatar a su hermana, secuestrada por un ladrón de bancos. Con un reparto destacado, dirigido por Elliott Lester, la película combina acción, drama y una ambientación cruda e implacable.",
@@ -281,8 +310,8 @@
       "title": "The Thicket",
       "price": 23
     },
-    
     {
+      "id": 32,
       "backdrop_path": "https://image.tmdb.org/t/p/w500/sAvcdgOzcxFoQPCdEputkyNR7yK.jpg",
       "genre_names": ["Crimen", "Suspense", "Western"],
       "overview": "Tras sufrir un brutal ataque en Nochebuena, una joven, Nikki, lucha por convencer a sus amigos de que el asaltante no era otro que Ol' Kris Kringle. Cuando Santa vuelve a aterrorizar al grupo en su remota cabaña la Navidad siguiente, Nikki y sus amigos deben superar la incredulidad mientras luchan por mantenerse con vida.",

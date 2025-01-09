@@ -85,7 +85,18 @@ function cargarPeliculas() {
 // Función para añadir película al carrito
 function anadirAlCarrito(pelicula) {
   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-  carrito.push(pelicula);
+  if (!Array.isArray(carrito)) {
+    carrito = [];
+  }
+  const peliculaExistente = carrito.find(item => item.id === pelicula.id);
+
+  if (peliculaExistente) {
+    peliculaExistente.cantidad++;
+  } else {
+    pelicula.cantidad = 1;
+    carrito.push(pelicula);
+  }
+
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 

@@ -86,3 +86,23 @@
   font-size: 14px;
 }
 
+/* Contenedor general de las películas en el carrito */
+#carrito {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las películas */
+  gap: 20px; /* Espacio entre las películas */
+  padding: 20px; /* Opcional, para darle algo de espacio alrededor */
+}
+
+/* Estilo de cada película en el carrito */
+#carrito .pelicula {
+  text-align: center; /* Centra el texto (títulos y botones) */
+  width: calc(25% - 20px); /* Define un tamaño fijo para cada película, 4 por fila */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center;
+  gap: 10px; /* Espacio uniforme entre elementos (imagen, título, botones) */
+}
+
