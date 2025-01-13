@@ -28,7 +28,6 @@ function validar(event) {
             if (data.token) {
                 sessionStorage.setItem('username', username);
                 sessionStorage.setItem('llave', true);
-                sessionStorage.setItem('carrito', JSON.stringify([]));  // Inicializamos carrito vacío
                 sessionStorage.setItem('email', email);
 
                 window.location.href = 'menu.html';  // Redirigir a la página deseada

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Películas</title>
-    
 </head>
 <body>
 
@@ -18,9 +17,52 @@
             <li><a href="index.html">Cerrar Sesión</a></li>
         </ul>
     </nav>
+    <div class="ordenar">
+        <label for="ordenar-precio">Ordenar por precio:</label>
+        <select id="ordenar-precio">
+            <option value="default">Default</option>
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+        </select>
+    </div>
+    <div class="filtrar">
+        <label for="filtrar-categoria">Filtrar por categoría:</label>
+        <select id="filtrar-categoria">
+            <option value="all">Todas</option>
+            <option value="Acción">Acción</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Drama">Drama</option>
+            <option value="Ciencia ficción">Ciencia ficción</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Familia">Familia</option>
+            <option value="Animación">Animación</option>
+            <option value="Romance">Romance</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Suspense">Suspense</option>
+            <option value="Terror">Terror</option>
+            <option value="Documental">Documental</option>
+            <option value="Crimen">Crimen</option>
+            <option value="Western">Western</option>
+        </select>
+        <button id="aplicar-filtro">Aplicar Filtro</button>
+    </div>
 </header>
 
 <div id="lista-peliculas"></div>
+
+<!-- Contenedor de la ventana modal -->
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close">x</span>
+        <img id="modal-img" src="" alt="">
+        <div class="modal-details">
+            <h3 id="modal-title"></h3>
+            <p id="modal-price"></p>
+            <p id="modal-overview"></p>
+            <button id="modal-add-to-cart" class="anadir-carrito">Añadir al carrito</button>
+        </div>
+    </div>
+</div>
 
 <script src="script.js"></script>
 
@@ -29,4 +71,3 @@
     <p>Contacto: <a href="mailto:info@peliculas.com">info@peliculas.com</a></p>
 </footer>   
 </body>
-</html>

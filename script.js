@@ -3,18 +3,18 @@ function cargarPeliculas() {
   fetch('peliculas.json')
       .then(response => response.json())
       .then(data => {
-          const peliculas = data.results;
+          let peliculas = data.results;
           const container = document.getElementById('lista-peliculas');
-
-          // Mostrar las primeras 8 películas
-          mostrarPeliculas(peliculas.slice(0, 8), container);
-
-          let pagina = 1;
+          let peliculasMostradas = 0;
           const peliculasPorPagina = 8;
 
           // Función para mostrar las películas
-          function mostrarPeliculas(peliculas, container) {
-              peliculas.forEach(pelicula => {
+          function mostrarPeliculas(peliculas, container, inicio, cantidad, limpiar = false) {
+              if (limpiar) {
+                  container.innerHTML = ''; // Limpiar el contenedor antes de mostrar las películas
+              }
+              const peliculasParaMostrar = peliculas.slice(inicio, inicio + cantidad);
+              peliculasParaMostrar.forEach(pelicula => {
                   const peliculaDiv = document.createElement('div');
                   peliculaDiv.classList.add('pelicula');
 
@@ -26,6 +26,10 @@ function cargarPeliculas() {
                   const titulo = document.createElement('h3');
                   titulo.textContent = pelicula.title;
 
+                  // Crear elemento para el precio
+                  const precio = document.createElement('p');
+                  precio.textContent = `Precio: $${pelicula.price}`;
+
                   // Crear contenedor para los botones
                   const botonesDiv = document.createElement('div');
                   botonesDiv.classList.add('botones');
@@ -33,6 +37,9 @@ function cargarPeliculas() {
                   const verDetallesBtn = document.createElement('button');
                   verDetallesBtn.textContent = 'Ver detalles';
                   verDetallesBtn.classList.add('ver-detalles');
+                  verDetallesBtn.addEventListener('click', () => {
+                      mostrarDetalles(pelicula);
+                  });
 
                   const anadirCarritoBtn = document.createElement('button');
                   anadirCarritoBtn.textContent = 'Añadir al carrito';
@@ -48,35 +55,93 @@ function cargarPeliculas() {
                   // Añadir elementos al div de la película
                   peliculaDiv.appendChild(poster);
                   peliculaDiv.appendChild(titulo);
+                  peliculaDiv.appendChild(precio); // Añadir el precio debajo del título
                   peliculaDiv.appendChild(botonesDiv);
 
                   container.appendChild(peliculaDiv);
               });
           }
 
-          // Función para cargar más películas con scroll infinito
-          window.onscroll = function () {
-              if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                  if ((pagina * peliculasPorPagina) < peliculas.length) {
-                      pagina++;
-                      const nextPeliculas = peliculas.slice(pagina * peliculasPorPagina - peliculasPorPagina, pagina * peliculasPorPagina);
-                      mostrarPeliculas(nextPeliculas, container);
-                      mostrarPreload();
-                  }
-              }
-          };
+          // Función para mostrar detalles de la película en una ventana modal
+          function mostrarDetalles(pelicula) {
+              const modal = document.getElementById('modal');
+              const modalImg = document.getElementById('modal-img');
+              const modalTitle = document.getElementById('modal-title');
+              const modalPrice = document.getElementById('modal-price');
+              const modalOverview = document.getElementById('modal-overview');
+              const modalAddToCartBtn = document.getElementById('modal-add-to-cart');
 
-          // Mostrar mensaje de carga
-          function mostrarPreload() {
-              const preload = document.createElement('div');
-              preload.classList.add('preload');
-              preload.textContent = 'Cargando más películas...';
-              document.body.appendChild(preload);
+              modalImg.src = pelicula.poster_path;
+              modalImg.alt = pelicula.title;
+              modalTitle.textContent = pelicula.title;
+              modalPrice.textContent = `Precio: $${pelicula.price}`;
+              modalOverview.textContent = pelicula.overview;
 
-              setTimeout(() => {
-                  preload.remove();
-              }, 2000);
+              modalAddToCartBtn.onclick = () => {
+                  anadirAlCarrito(pelicula);
+                  modal.style.display = 'none';
+              };
+
+              modal.style.display = 'flex';
+
+              const modalCloseBtn = document.querySelector('.modal .close');
+              modalCloseBtn.onclick = () => {
+                  modal.style.display = 'none';
+              };
           }
+
+          // Mostrar las primeras películas
+          mostrarPeliculas(peliculas, container, peliculasMostradas, peliculasPorPagina, true);
+          peliculasMostradas += peliculasPorPagina;
+
+          // Función para cargar más películas al hacer scroll
+          function cargarMasPeliculas() {
+              if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                  mostrarPeliculas(peliculas, container, peliculasMostradas, peliculasPorPagina);
+                  peliculasMostradas += peliculasPorPagina;
+              }
+          }
+
+          // Agregar evento de scroll
+          window.addEventListener('scroll', cargarMasPeliculas);
+
+          
+          // Ordenar películas por precio
+          const ordenarSelect = document.getElementById('ordenar-precio');
+          ordenarSelect.addEventListener('change', (event) => {
+              const orden = event.target.value;
+              if (orden === 'default') {
+                  peliculas = data.results.slice().sort((a, b) => a.id - b.id); // Ordenar por id
+              } else {
+                  peliculas.sort((a, b) => {
+                      if (orden === 'asc') {
+                          return a.price - b.price;
+                      } else {
+                          return b.price - a.price;
+                      }
+                  });
+              }
+              peliculasMostradas = 0;
+              mostrarPeliculas(peliculas, container, peliculasMostradas, peliculasPorPagina, true);
+              peliculasMostradas += peliculasPorPagina;
+          });
+
+          // Filtrar películas por categoría
+          const filtrarSelect = document.getElementById('filtrar-categoria');
+          const aplicarFiltroBtn = document.getElementById('aplicar-filtro');
+          aplicarFiltroBtn.addEventListener('click', () => {
+              const categoria = filtrarSelect.value;
+              let peliculasFiltradas;
+              if (categoria === 'all') {
+                  peliculasFiltradas = peliculas;
+              } else {
+                peliculasFiltradas = peliculas.filter(pelicula => pelicula.genre_names && pelicula.genre_names.includes(categoria));
+              }
+              peliculasMostradas = 0;
+              mostrarPeliculas(peliculasFiltradas, container, peliculasMostradas, peliculasPorPagina, true);
+              peliculasMostradas += peliculasPorPagina;
+          });
+
           
       })
       .catch(error => console.error('Error al cargar las películas:', error));
