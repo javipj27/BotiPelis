@@ -196,3 +196,52 @@
   background-color: #c82333;
 }
 
+/* Estilos para el formulario de inicio de sesión */
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 2px solid #007BFF;
+  border-radius: 15px;
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#login-form label {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+#login-form input {
+  padding: 12px;
+  border: 2px solid #007BFF;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #e6f7ff;
+}
+
+#login-form input:focus {
+  border-color: #0056b3;
+  outline: none;
+  background-color: #d0eaff;
+}
+
+#login-form input[type="submit"] {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#login-form input[type="submit"]:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
