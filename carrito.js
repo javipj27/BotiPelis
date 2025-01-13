@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             titulo.textContent = pelicula.title;
 
             const precio = document.createElement('p');
-            precio.textContent = `Precio: $${pelicula.price * pelicula.cantidad}`;
+            precio.textContent = `Precio: ${pelicula.price * pelicula.cantidad}€`;
 
             const cantidad = document.createElement('p');
             cantidad.textContent = `Cantidad: ${pelicula.cantidad}`;
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             incrementarBtn.classList.add('incrementar');
             incrementarBtn.addEventListener('click', () => {
                 pelicula.cantidad++;
-                actualizarCarrito();
+                actualizarCarrito(pelicula.id, pelicula.cantidad);
             });
 
             const decrementarBtn = document.createElement('button');
@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
             decrementarBtn.addEventListener('click', () => {
                 if (pelicula.cantidad > 1) {
                     pelicula.cantidad--;
-                    actualizarCarrito();
+                    actualizarCarrito(pelicula.id, pelicula.cantidad);
+                } else {
+                    eliminarDelCarrito(pelicula.id);
                 }
             });
 
@@ -59,8 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function actualizarCarrito() {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+function actualizarCarrito(id, cantidad) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito = carrito.map(pelicula => {
+        if (pelicula.id === id) {
+            pelicula.cantidad = cantidad;
+        }
+        return pelicula;
+    });
     localStorage.setItem('carrito', JSON.stringify(carrito));
     location.reload();
 }

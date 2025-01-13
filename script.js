@@ -28,7 +28,7 @@ function cargarPeliculas() {
 
                   // Crear elemento para el precio
                   const precio = document.createElement('p');
-                  precio.textContent = `Precio: $${pelicula.price}`;
+                  precio.textContent = `Precio: ${pelicula.price}€`;
 
                   // Crear contenedor para los botones
                   const botonesDiv = document.createElement('div');

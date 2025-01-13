@@ -164,3 +164,35 @@
   cursor: pointer;
 }
 
+/* Estilo de los botones de incrementar y decrementar */
+.incrementar, .decrementar {
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.incrementar:hover, .decrementar:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo del botón de eliminar */
+.eliminar {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.eliminar:hover {
+  background-color: #c82333;
+}
+
