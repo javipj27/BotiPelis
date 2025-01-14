@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const container = document.getElementById('carrito');
+    const precioTotalElement = document.getElementById('precio-total');
+    const finalizarBtn = document.getElementById('finalizar-pedido');
 
     if (carrito.length === 0) {
         container.innerHTML = '<p>El carrito está vacío</p>';
+        precioTotalElement.textContent = 'Precio Total: 0€';
     } else {
+        let precioTotal = 0;
+
         carrito.forEach(pelicula => {
             const peliculaDiv = document.createElement('div');
             peliculaDiv.classList.add('pelicula');
@@ -17,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
             titulo.textContent = pelicula.title;
 
             const precio = document.createElement('p');
-            precio.textContent = `Precio: ${pelicula.price * pelicula.cantidad}€`;
+            const precioPelicula = pelicula.price * pelicula.cantidad;
+            precio.textContent = `Precio: ${precioPelicula}€`;
+
+            precioTotal += precioPelicula;
 
             const cantidad = document.createElement('p');
             cantidad.textContent = `Cantidad: ${pelicula.cantidad}`;
@@ -57,6 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
             peliculaDiv.appendChild(decrementarBtn);
             peliculaDiv.appendChild(eliminarBtn);
             container.appendChild(peliculaDiv);
+        });
+
+        precioTotalElement.textContent = `Precio Total: ${precioTotal}€`;
+
+        finalizarBtn.addEventListener('click', () => {
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío. No puedes finalizar el pedido.");
+            } else {
+                alert("Pedido realizado correctamente");
+                localStorage.removeItem('carrito');
+                location.reload();
+            }
         });
     }
 });
