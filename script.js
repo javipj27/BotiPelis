@@ -1,168 +1,240 @@
-var peliculasMostradas = 0; // Variable global
+var peliculasMostradas = 0;
 
-// Cargar las películas
+// cargar peliculas
 function cargarPeliculas() {
-  fetch('peliculas.json')
-    .then(response => response.json())
-    .then(data => inicializarPeliculas(data.results))
-    .catch(error => console.error('Error al cargar las películas:', error));
+  //obtener las peliculas.json
+  fetch("peliculas.json")
+    //si esta bien, pasar a formato json
+    .then((response) => response.json())
+    //pasamos el json a inicializarPeliculas
+    .then((data) => inicializarPeliculas(data.results))
+    //si da fallo se muestra
+    .catch((error) => console.error("Error al cargar las películas:", error));
 }
 
-// Iniciar las películas
+// iniciar las peliculas
 function inicializarPeliculas(peliculas) {
-  var container = document.getElementById('lista-peliculas');
-  
-  // Llamar a la actualización inicial de películas
+  //se coge el contenedor por id
+  var container = document.getElementById("lista-peliculas");
+
+  //inicial de peliculas
   actualizarPeliculas(peliculas, container, true);
 
-  window.addEventListener('scroll', function() {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && peliculasMostradas < peliculas.length) {
+  //desplazamiento de la pagina scroll
+  window.addEventListener("scroll", function () {
+    //si ha llegado al final de la pagina con margen de 100px y aun no estan todas las pelis
+    if (
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+      peliculasMostradas < peliculas.length
+    ) {
+      //se actualiza
       actualizarPeliculas(peliculas, container, false);
     }
   });
 
-  document.getElementById('ordenar-precio').addEventListener('change', function() {
-    ordenarPeliculas(peliculas, container);
-  });
-  
-  document.getElementById('aplicar-filtro').addEventListener('click', function() {
-    filtrarPeliculas(peliculas, container);
-  });
+  //si cambia el ordenar precio se ordena
+  document
+    .getElementById("ordenar-precio")
+    .addEventListener("change", function () {
+      ordenarPeliculas(peliculas, container);
+    });
+
+  //si cambia el filtro por categoria se filtra
+  document
+    .getElementById("aplicar-filtro")
+    .addEventListener("click", function () {
+      filtrarPeliculas(peliculas, container);
+    });
 }
 
-// Ordenar películas
+// ordenar peliculas
 function ordenarPeliculas(peliculas, container) {
-  var orden = document.getElementById('ordenar-precio').value;
-  peliculas.sort(function(a, b) {
-    return orden === 'asc' ? a.price - b.price : b.price - a.price;
+  //obtienes el valor
+  var orden = document.getElementById("ordenar-precio").value;
+  //se ordena
+  peliculas.sort(function (a, b) {
+    //si la opcion es asc se ordena de menor a mayor
+    return orden === "asc" ? a.price - b.price : b.price - a.price;
   });
-  peliculasMostradas = 0; // Reiniciar el contador
+  //resetea la cantidad de peliculas y actualiza de nuevo
+  peliculasMostradas = 0;
   actualizarPeliculas(peliculas, container, true);
 }
 
-// Filtrar por categoría
+// filtrar por categoria
 function filtrarPeliculas(peliculas, container) {
-  var categoria = document.getElementById('filtrar-categoria').value;
-  var peliculasFiltradas = categoria === 'all' 
-    ? peliculas 
-    : peliculas.filter(function(pelicula) {
-        return pelicula.genre_names && pelicula.genre_names.includes(categoria);
-      });
-  
-  peliculasMostradas = 0; // Reiniciar el contador
+  //cogemos el valor del select
+  var categoria = document.getElementById("filtrar-categoria").value;
+  //si es all, no se muestran las peliculas
+  //si es otra, se filtran las peliculas que tienen esa categoria
+  var peliculasFiltradas =
+    categoria === "all"
+      ? peliculas
+      : peliculas.filter(function (pelicula) {
+          return (
+            pelicula.genre_names && pelicula.genre_names.includes(categoria)
+          );
+        });
+
+  //resetea cantidad y actualiza
+  peliculasMostradas = 0;
   actualizarPeliculas(peliculasFiltradas, container, true);
 }
 
-// Actualizar las películas
+// actualizar las peliculas
 function actualizarPeliculas(peliculasFiltradas, container, limpiar) {
+  //vacia el contenedor
   if (limpiar) {
-    container.innerHTML = '';
+    container.innerHTML = "";
   }
 
-  // Mostrar las siguientes 8 películas
-  peliculasFiltradas.slice(peliculasMostradas, peliculasMostradas + 8)
-    .forEach(function(pelicula) {
+  //coge 8 peliculas y las muestra
+  peliculasFiltradas
+    .slice(peliculasMostradas, peliculasMostradas + 8)
+    .forEach(function (pelicula) {
+      //crea elemento para cada pelicula y lo añade al contenedor
       crearPelicula(pelicula, container);
     });
 
+  //incrementa la cantidad de peliculas mostradas en 8
   peliculasMostradas += 8;
 }
 
-// Crear una película
+// crear una pelicula
 function crearPelicula(pelicula, container) {
-  var peliculaDiv = document.createElement('div');
-  peliculaDiv.classList.add('pelicula');
+  //crea div
+  var peliculaDiv = document.createElement("div");
+  //añade clase pelicula al div
+  peliculaDiv.classList.add("pelicula");
 
+  //crea imagen, titulo, precio y botones
   var img = crearImagen(pelicula);
   var titulo = crearTitulo(pelicula);
   var precio = crearPrecio(pelicula);
   var botonesDiv = crearBotones(pelicula);
 
+  //añade imagen, titulo, precio y botones al div
   peliculaDiv.appendChild(img);
   peliculaDiv.appendChild(titulo);
   peliculaDiv.appendChild(precio);
   peliculaDiv.appendChild(botonesDiv);
 
+  //añade el div al contenedor
   container.appendChild(peliculaDiv);
 }
 
-// Imagen
+// imagen
 function crearImagen(pelicula) {
-  var img = document.createElement('img');
+  var img = document.createElement("img");
   img.src = pelicula.poster_path;
   img.alt = pelicula.title;
   return img;
 }
 
-// Titulo
+// titulo
 function crearTitulo(pelicula) {
-  var titulo = document.createElement('h3');
+  //crea h3
+  var titulo = document.createElement("h3");
+
+  //añade el titulo de la pelicula
   titulo.textContent = pelicula.title;
   return titulo;
 }
 
-// Precio
+// precio
 function crearPrecio(pelicula) {
-  var precio = document.createElement('p');
-  precio.textContent = 'Precio: ' + pelicula.price + '€';
+  //crea p
+  var precio = document.createElement("p");
+
+  //añade el precio de la pelicula
+  precio.textContent = "Precio: " + pelicula.price + "€";
   return precio;
 }
 
-// Crear los botones
+// crear los botones
 function crearBotones(pelicula) {
-  var botonesDiv = document.createElement('div');
-  botonesDiv.classList.add('botones');
+  //crea div para los botones
+  var botonesDiv = document.createElement("div");
+  //añade clase botones al div
+  botonesDiv.classList.add("botones");
 
-  var btnDetalles = document.createElement('button');
-  btnDetalles.classList.add('ver-detalles');
-  btnDetalles.textContent = 'Ver detalles';
-  btnDetalles.addEventListener('click', function() {
+  //crea boton ver detalles
+  var btnDetalles = document.createElement("button");
+  //añade clase ver-detalles al boton
+  btnDetalles.classList.add("ver-detalles");
+  //texto al boton
+  btnDetalles.textContent = "Ver detalles";
+
+  //evento para ver detalles cuando le des click al boton
+  btnDetalles.addEventListener("click", function () {
     mostrarDetalles(pelicula);
   });
 
-  var btnCarrito = document.createElement('button');
-  btnCarrito.classList.add('anadir-carrito');
-  btnCarrito.textContent = 'Añadir al carrito';
-  btnCarrito.addEventListener('click', function() {
+  //crea boton añadir al carrito
+  var btnCarrito = document.createElement("button");
+  //añade clase anadir-carrito al boton
+  btnCarrito.classList.add("anadir-carrito");
+  //texto al boton
+  btnCarrito.textContent = "Añadir al carrito";
+  //evento para añadir al carrito cuando le des click al boton
+  btnCarrito.addEventListener("click", function () {
     anadirAlCarrito(pelicula);
   });
 
+  //añade botones al contenedor
   botonesDiv.appendChild(btnDetalles);
   botonesDiv.appendChild(btnCarrito);
 
   return botonesDiv;
 }
 
-// Función para ver los detalles de la película
+// ver los detalles de la pelicula
 function mostrarDetalles(pelicula) {
-  var modal = document.getElementById('modal');
-  modal.querySelector('#modal-img').src = pelicula.poster_path;
-  modal.querySelector('#modal-title').textContent = pelicula.title;
-  modal.querySelector('#modal-price').textContent = 'Precio: $' + pelicula.price;
-  modal.querySelector('#modal-overview').textContent = pelicula.overview;
-  modal.querySelector('#modal-add-to-cart').onclick = function() {
+  //coge el modal por id
+  var modal = document.getElementById("modal");
+  //añade la imagen, titulo, precio
+  modal.querySelector("#modal-img").src = pelicula.poster_path;
+  modal.querySelector("#modal-title").textContent = pelicula.title;
+  modal.querySelector("#modal-price").textContent =
+    "Precio: $" + pelicula.price;
+
+  //añade la descripcion
+  modal.querySelector("#modal-overview").textContent = pelicula.overview;
+  //configura el añadir carrito
+  modal.querySelector("#modal-add-to-cart").onclick = function () {
+    //añade la pelicula y cierra el modal
     anadirAlCarrito(pelicula);
-    modal.style.display = 'none';
+    modal.style.display = "none";
   };
-  modal.style.display = 'flex';
-  modal.querySelector('.close').onclick = function() {
-    modal.style.display = 'none';
+
+  //muestra el modal
+  modal.style.display = "flex";
+
+  //cerrar el modal
+  modal.querySelector(".close").onclick = function () {
+    modal.style.display = "none";
   };
 }
 
-// Añadir película al carrito
+// Añadir pelicula al carrito
 function anadirAlCarrito(pelicula) {
-  var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-  var existente = carrito.find(function(item) {
+  //lo recupera del local storage o crea array vacio
+  var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  //busca si la pelicula esta en el carrito
+  var existente = carrito.find(function (item) {
     return item.id === pelicula.id;
   });
   if (existente) {
+    //si esta, incrementa la cantidad
     existente.cantidad++;
   } else {
+    //si no esta, añade la pelicula al carrito
     carrito.push(Object.assign({}, pelicula, { cantidad: 1 }));
   }
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+  //guarda el carrito en el local storage
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Cargar las películas al cargar la página
+// cargar las peliculas al cargar la pagina
 window.onload = cargarPeliculas;

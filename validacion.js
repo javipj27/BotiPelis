@@ -1,42 +1,59 @@
-var llave = false;
+//hacer que sea un numero
+let intentosFallidos = parseInt(localStorage.getItem("intentosFallidos")) || 0;
 
 function validar(event) {
-    event.preventDefault();  // Evitar que el formulario se envíe de forma tradicional
+  //hacer que el formulario no se envie de manera predeterminada
+  event.preventDefault();
 
-    var username = document.getElementById("usuario").value;  // Obtener el nombre de usuario
-    var password = document.getElementById("password").value;  // Obtener la contraseña
-    var email = document.getElementById("email").value;  // Obtener el email
+  //si ha llegado a 5 intentos fallidos detener la ejecucion y mostrar mensaje
+  if (intentosFallidos >= 5) {
+    alert(
+      "Has alcanzado el número máximo de intentos fallidos. Intenta nuevamente más tarde."
+    );
+    return;
+  }
 
-    // Preparamos los datos para el login
-    var formData = {
-        username: username,
-        password: password
-    };
+  //obtener los valores de los inputs
+  const username = document.getElementById("usuario").value;
+  const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value;
 
-    // Llamada a la API de login
-    fetch('https://fakestoreapi.com/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+  //hacer solicitud fetch para obtener los usuarios
+  fetch("usuarios.json")
+    //convertir la respuesta a json
+    .then((response) => response.json())
+    //buscar el usuario y contraseña en el json
+    .then((usuarios) => {
+      const usuarioValido = usuarios.find(
+        (user) => user.username === username && user.password === password
+      );
+
+      //si es valido se guarda en el session storage
+      if (usuarioValido) {
+        sessionStorage.setItem("username", username);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("llave", true);
+
+        //redirigir a la pagina de menu
+        window.location.href = "menu.html";
+      } else {
+        //si no es valido mostrar mensaje de error y sumar intentos fallidos
+        alert("Usuario o contraseña incorrectos");
+        intentosFallidos++;
+        localStorage.setItem("intentosFallidos", intentosFallidos);
+
+        //si llega a 5 intentos fallidos deshabilitar los inputs y el boton de enviar
+        if (intentosFallidos >= 5) {
+          document.getElementById("usuario").disabled = true;
+          document.getElementById("password").disabled = true;
+          document.getElementById("email").disabled = true;
+          document.querySelector('input[type="submit"]').disabled = true;
+        }
+      }
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            // Si el login es correcto, guardamos en sessionStorage y redirigimos
-            if (data.token) {
-                sessionStorage.setItem('username', username);
-                sessionStorage.setItem('llave', true);
-                sessionStorage.setItem('email', email);
-
-                window.location.href = 'menu.html';  // Redirigir a la página deseada
-            } else {
-                alert("Usuario o contraseña incorrectos");
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("Error en el login, intente nuevamente");
-        });
+    .catch((error) => {
+      //si hay un error mostrar mensaje de error
+      console.error("Error al cargar usuarios:", error);
+      alert("Error en el login, intente nuevamente");
+    });
 }
