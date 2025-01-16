@@ -1,11 +1,11 @@
-//hacer que sea un numero
+// Inicializar los intentos fallidos desde localStorage
 let intentosFallidos = parseInt(localStorage.getItem("intentosFallidos")) || 0;
 
 function validar(event) {
-  //hacer que el formulario no se envie de manera predeterminada
+  // Prevenir el envío predeterminado del formulario
   event.preventDefault();
 
-  //si ha llegado a 5 intentos fallidos detener la ejecucion y mostrar mensaje
+  // Verificar si se alcanzaron 5 intentos fallidos
   if (intentosFallidos >= 5) {
     alert(
       "Has alcanzado el número máximo de intentos fallidos. Intenta nuevamente más tarde."
@@ -13,47 +13,49 @@ function validar(event) {
     return;
   }
 
-  //obtener los valores de los inputs
+  // Obtener los valores de los inputs
   const username = document.getElementById("usuario").value;
   const password = document.getElementById("password").value;
-  const email = document.getElementById("email").value;
 
-  //hacer solicitud fetch para obtener los usuarios
-  fetch("usuarios.json")
-    //convertir la respuesta a json
-    .then((response) => response.json())
-    //buscar el usuario y contraseña en el json
+  // Hacer solicitud fetch a JSON Server para validar usuario y contraseña
+  fetch(`http://localhost:3000/usuarios?username=${username}&password=${password}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+      return response.json(); // Convertir la respuesta a JSON
+    })
     .then((usuarios) => {
-      const usuarioValido = usuarios.find(
-        (user) => user.username === username && user.password === password
-      );
+      // Verificar si se encontró un usuario válido
+      if (usuarios.length > 0) {
+        const usuarioValido = usuarios[0]; // Usuario encontrado
 
-      //si es valido se guarda en el session storage
-      if (usuarioValido) {
-        sessionStorage.setItem("username", username);
-        sessionStorage.setItem("email", email);
+        // Guardar datos en sessionStorage
+        sessionStorage.setItem("username", usuarioValido.username);
+        sessionStorage.setItem("email", usuarioValido.email);
         sessionStorage.setItem("llave", true);
 
-        //redirigir a la pagina de menu
+        // Redirigir a la página de menú
         window.location.href = "menu.html";
       } else {
-        //si no es valido mostrar mensaje de error y sumar intentos fallidos
+        // Si no es válido, mostrar mensaje y sumar intentos fallidos
         alert("Usuario o contraseña incorrectos");
         intentosFallidos++;
         localStorage.setItem("intentosFallidos", intentosFallidos);
 
-        //si llega a 5 intentos fallidos deshabilitar los inputs y el boton de enviar
+        // Si llega a 5 intentos fallidos, deshabilitar los inputs y botón
         if (intentosFallidos >= 5) {
           document.getElementById("usuario").disabled = true;
           document.getElementById("password").disabled = true;
-          document.getElementById("email").disabled = true;
           document.querySelector('input[type="submit"]').disabled = true;
         }
       }
     })
     .catch((error) => {
-      //si hay un error mostrar mensaje de error
-      console.error("Error al cargar usuarios:", error);
+      console.error("Error al realizar la solicitud:", error);
       alert("Error en el login, intente nuevamente");
     });
 }
+
+// Asignar el evento "submit" al formulario
+document.getElementById("loginForm").addEventListener("submit", validar);
