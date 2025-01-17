@@ -236,5 +236,22 @@ function anadirAlCarrito(pelicula) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+function buscarTitulo() {
+  var buscarTitulo = document.getElementById("buscar-titulo").value.toLowerCase();
+  var container = document.getElementById("lista-peliculas");
+
+  fetch("peliculas.json")
+    .then((response) => response.json())
+    .then((data) => {
+      var peliculasFiltradas = data.results.filter((pelicula) =>
+        pelicula.title.toLowerCase().includes(buscarTitulo)
+      );
+      peliculasMostradas = 0;
+      actualizarPeliculas(peliculasFiltradas, container, true);
+    })
+}
+
+
+
 // cargar las peliculas al cargar la pagina
 window.onload = cargarPeliculas;
