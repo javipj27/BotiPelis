@@ -7,20 +7,21 @@
     <title>BotiPelis</title>
 </head>
 <body>
-    <form id="login-form" action="#" method="POST" onsubmit="validar(event)">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
+    <div class="login">
+        <form class="login__form" action="#" method="POST" onsubmit="validar(event)">
+            <label class="login__label" for="email">Email</label>
+            <input class="login__input login__input--email" type="email" name="email" id="email" required>
 
-        <label for="usuario">Usuario</label>
-        <input type="text" name="usuario" id="usuario" required>
+            <label class="login__label" for="usuario">Usuario</label>
+            <input class="login__input login__input--usuario" type="text" name="usuario" id="usuario" required>
 
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" required>
+            <label class="login__label" for="password">Contraseña</label>
+            <input class="login__input login__input--password" type="password" name="password" id="password" required>
 
-        <input type="submit" value="Iniciar Sesión">
-    </form>
+            <input class="login__submit" type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
 
     <script src="validacion.js"></script>
 </body>
 </html>
-

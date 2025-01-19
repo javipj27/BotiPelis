@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/estilos.css">
     <title>BotiPelis Carrito</title>
 </head>
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="menu.html">Inicio</a></li>
-            <li><a href="carrito.html">Carrito</a></li>
-            <li><a href="index.html">Cerrar Sesión</a></li>
+<header class="header">
+    <nav class="header__nav">
+        <ul class="header__nav-list">
+            <li class="header__nav-item"><a href="menu.html" class="header__nav-link">Inicio</a></li>
+            <li class="header__nav-item"><a href="carrito.html" class="header__nav-link">Carrito</a></li>            
+            <li class="header__nav-item"><a href="galeria.html" class="header__nav-link">Galeria</a></li>
+            <li class="header__nav-item"><a href="index.html" class="header__nav-link">Cerrar Sesión</a></li>
         </ul>
     </nav>
 </header>
 
-<div id="carrito"></div>
-
-<div id="precio-total"></div>
-
-<button id="finalizar-pedido">Finalizar Pedido</button>
+<main class="main">
+    <div id="carrito" class="main__carrito"></div>
+    <div id="precio-total" class="main__precio-total"></div>
+    <button id="finalizar-pedido" class="main__finalizar-pedido">Finalizar Pedido</button>
+</main>
 
 <script src="carrito.js"></script>
 
-<footer>
-    <p>&copy; 2025 Películas. Todos los derechos reservados.</p>
-    <p>Contacto: <a href="mailto:info@peliculas.com">BotiPelis@peliculas.com</a></p>
+<footer class="footer">
+    <p class="footer__text">&copy; 2025 Películas. Todos los derechos reservados.</p>
+    <p class="footer__contact">Contacto: <a href="mailto:info@peliculas.com" class="footer__contact-link">BotiPelis@peliculas.com</a></p>
 </footer>   
 
 </body>

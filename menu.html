@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/estilos.css">
     <title>BotiPelis</title>
 </head>
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="menu.html">Inicio</a></li>
-            <li><a href="carrito.html">Carrito</a></li>
-            <li><a href="index.html">Cerrar Sesión</a></li>
+<header class="header">
+    <nav class="header__nav">
+        <ul class="header__nav-list">
+            <li class="header__nav-item"><a href="menu.html" class="header__nav-link">Inicio</a></li>
+            <li class="header__nav-item"><a href="carrito.html" class="header__nav-link">Carrito</a></li>            
+            <li class="header__nav-item"><a href="galeria.html" class="header__nav-link">Galeria</a></li>
+            <li class="header__nav-item"><a href="index.html" class="header__nav-link">Cerrar Sesión</a></li>
         </ul>
     </nav>
-    <div class="ordenar">
-        <label for="ordenar-precio">Ordenar por precio:</label>
-        <select id="ordenar-precio">
+    <div class="header__ordenar">
+        <label for="ordenar-precio" class="header__ordenar-label">Ordenar por precio:</label>
+        <select id="ordenar-precio" class="header__ordenar-select">
             <option value="default">Default</option>
             <option value="asc">Ascendente</option>
             <option value="desc">Descendente</option>
         </select>
-            <label for="buscar-titulo">Buscar película:</label>
-            <input type="text" id="buscar-titulo" placeholder="Buscar por título">
-            <button onclick="buscarTitulo()">Buscar por titulo</button>
+        <label for="buscar-titulo" class="header__buscar-label">Buscar película:</label>
+        <input type="text" id="buscar-titulo" class="header__buscar-input" placeholder="Buscar por título">
+        <button onclick="buscarTitulo()" class="header__buscar-button">Buscar por titulo</button>
     </div>
-    <div class="filtrar">
-        <label for="filtrar-categoria">Filtrar por categoría:</label>
-        <select id="filtrar-categoria">
+    <div class="header__filtrar">
+        <label for="filtrar-categoria" class="header__filtrar-label">Filtrar por categoría:</label>
+        <select id="filtrar-categoria" class="header__filtrar-select">
             <option value="all">Todas</option>
             <option value="Acción">Acción</option>
             <option value="Aventura">Aventura</option>
@@ -46,32 +48,32 @@
             <option value="Crimen">Crimen</option>
             <option value="Western">Western</option>
         </select>
-        <button id="aplicar-filtro">Aplicar Filtro</button>
+        <button id="aplicar-filtro" class="header__filtrar-button">Aplicar Filtro</button>
     </div>
 </header>
 
-<main>
-    <div id="lista-peliculas"></div>
+<main class="main">
+    <div id="lista-peliculas" class="main__lista-peliculas"></div>
 </main>
 
 <div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close">x</span>
-        <img id="modal-img" src="" alt="">
-        <div class="modal-details">
-            <h3 id="modal-title"></h3>
-            <p id="modal-price"></p>
-            <p id="modal-overview"></p>
-            <button id="modal-add-to-cart" class="anadir-carrito">Añadir al carrito</button>
+    <div class="modal__content">
+        <span class="modal__close">x</span>
+        <img id="modal-img" src="" alt="" class="modal__img">
+        <div class="modal__details">
+            <h3 id="modal-title" class="modal__title"></h3>
+            <p id="modal-price" class="modal__price"></p>
+            <p id="modal-overview" class="modal__overview"></p>
+            <button id="modal-add-to-cart" class="modal__add-to-cart">Añadir al carrito</button>
         </div>
     </div>
 </div>
 
 <script src="script.js"></script>
 
-<footer>
-    <p>&copy; 2025 Películas. Todos los derechos reservados.</p>
-    <p>Contacto: <a href="mailto:info@peliculas.com">BotiPelis@peliculas.com</a></p>
+<footer class="footer">
+    <p class="footer__text">&copy; 2025 Películas. Todos los derechos reservados.</p>
+    <p class="footer__contact">Contacto: <a href="mailto:info@peliculas.com" class="footer__contact-link">BotiPelis@peliculas.com</a></p>
 </footer>   
 </body>
 </html>

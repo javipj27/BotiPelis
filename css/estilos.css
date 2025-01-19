@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #28a745;
+  --danger-color: #dc3545;
+  --light-bg-color: #f0f8ff;
+}
+
 /* Estilos generales */
 * {
   margin: 0;
@@ -9,18 +16,153 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 main {
   flex: 1;
 }
+/*estilos login*/
+.login {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
 
-#lista-peliculas, #carrito {
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  opacity: 0;
+  animation: slideIn 0.6s forwards;
+}
+
+.login__input {
+  padding: 10px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login__input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+  outline: none;
+}
+
+.login__input--email {
+  animation: slideIn 0.8s forwards;
+}
+
+.login__input--usuario {
+  animation: slideIn 1s forwards;
+}
+
+.login__input--password {
+  animation: slideIn 1.2s forwards;
+}
+
+.login__submit {
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login__submit:hover {
+  background-color: #45a049;
+}
+
+/* Header Navigation */
+header {
+  background-color: var(--primary-color);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.header__nav {
+  padding: 10px 0;
+}
+
+.header__nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-item {
+  display: inline;
+}
+
+.header__nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.header__nav-link:hover {
+  background-color: #0056b3;
+}
+
+.header__ordenar,
+.header__filtrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.header__filtrar-button {
+  padding: 8px 10px;
+  font-size: 16px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: bounce 1s ease-in-out;
+}
+
+.header__filtrar-button:hover {
+  background-color: #218838;
+}
+
+/* Estilos generales para secciones */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Listado de películas */
+.main__lista-peliculas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 15px; 
+  padding: 15px;
 }
 
 .pelicula {
@@ -33,15 +175,19 @@ main {
 }
 
 .pelicula img {
-  width: 200px; 
-  height: 290px; 
+  width: 200px;
+  height: 290px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.pelicula img:hover {
+  transform: scale(1.05); 
 }
 
 .pelicula h3 {
-  margin: 10px 0;
   font-size: 16px;
   color: #333;
 }
@@ -55,28 +201,34 @@ main {
 
 .pelicula button {
   padding: 10px;
-  background-color: #007BFF;
+  font-size: 14px;
   color: white;
   border: none;
-  cursor: pointer;
-  font-size: 14px;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   width: 45%;
-  transition: background-color 0.3s ease;
+}
+
+.pelicula .ver-detalles {
+  background-color: var(--primary-color);
 }
 
 .pelicula .ver-detalles:hover {
   background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pelicula .anadir-carrito {
-  background-color: #28a745;
+  background-color: var(--secondary-color);
 }
 
 .pelicula .anadir-carrito:hover {
   background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Modal */
 .modal {
   display: flex;
   justify-content: center;
@@ -88,9 +240,10 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  animation: slideDown 0.5s ease-in-out;
 }
 
-.modal-content {
+.modal__content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -103,236 +256,106 @@ main {
   position: relative;
 }
 
-.modal-content img {
+.modal__content img {
   width: 200px;
   height: 320px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.modal-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+.modal__details {
   text-align: center;
+  gap: 10px;
 }
 
-.modal-details h3 {
-  margin: 0;
+.modal__details h3 {
   font-size: 24px;
   color: #333;
 }
 
-.modal-details p {
-  margin: 5px 0;
+.modal__details p {
   font-size: 16px;
   color: #666;
 }
 
-.modal-details button {
+.modal__details button {
   padding: 10px 20px;
-  background-color: #28a745;
+  font-size: 16px;
+  background-color: var(--secondary-color);
   color: white;
   border: none;
-  cursor: pointer;
-  font-size: 16px;
   border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.modal-details button:hover {
+.modal__details button:hover {
   background-color: #218838;
 }
 
-.close {
+.modal__close {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 24px;
-  cursor: pointer;
-  background-color: #dc3545;
+  width: 30px;
+  height: 30px;
+  background-color: var(--danger-color);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease;
 }
 
-.close:hover {
+.modal__close:hover {
   background-color: #c82333;
 }
 
-footer {
-  background-color: #007BFF;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;
-  margin-top: auto;
+/* Carrito */
+.main__carrito {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+  gap: 20px; 
 }
 
-footer p {
-  margin: 5px 0;
-}
-
-footer a {
-  color: white;
-  text-decoration: underline;
-}
-
-footer a:hover {
-  color: #0056b3;
-}
-
-/* Estilos login */
-#login-form {
+.main__carrito .pelicula {
+  width: calc(25% - 20px); 
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 30px;
-  border: 2px solid #007BFF;
-  border-radius: 15px;
-  background-color: #f0f8ff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#login-form label {
-  font-weight: bold;
-  color: #007BFF;
-}
-
-#login-form input {
-  padding: 12px;
-  border: 2px solid #007BFF;
-  border-radius: 10px;
-  font-size: 16px;
-  background-color: #e6f7ff;
-}
-
-#login-form input:focus {
-  border-color: #0056b3;
-  outline: none;
-  background-color: #d0eaff;
-}
-
-#login-form input[type="submit"] {
-  padding: 12px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#login-form input[type="submit"]:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-}
-
-/* Estilos menu */
-nav {
-  background-color: #007BFF;
-  padding: 10px 0;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: #0056b3;
-}
-
-.ordenar, .filtrar {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 10px 0;
 }
 
-.ordenar label, .filtrar label {
-  font-weight: bold;
-  color: #333;
-}
-
-.ordenar select, .filtrar select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.filtrar button {
-  padding: 8px 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.filtrar button:hover {
-  background-color: #218838;
-}
-
-/* Estilos carrito */
-#carrito .pelicula {
-  width: calc(25% - 20px);
-  margin-top: 20px;
-}
-
-.incrementar, .decrementar {
+.incrementar,
+.decrementar {
   padding: 5px 10px;
-  background-color: #007BFF;
+  font-size: 14px;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  cursor: pointer;
-  font-size: 14px;
   border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.incrementar:hover, .decrementar:hover {
+.incrementar:hover,
+.decrementar:hover {
   background-color: #0056b3;
 }
 
 .eliminar {
   padding: 5px 10px;
-  background-color: #dc3545;
+  font-size: 14px;
+  background-color: var(--danger-color);
   color: white;
   border: none;
-  cursor: pointer;
-  font-size: 14px;
   border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -340,7 +363,7 @@ nav ul li a:hover {
   background-color: #c82333;
 }
 
-#precio-total {
+.main__precio-total {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
@@ -348,22 +371,413 @@ nav ul li a:hover {
   color: #333;
 }
 
-#finalizar-pedido {
+.main__finalizar-pedido {
   display: block;
   margin: 20px auto;
   padding: 15px 30px;
-  background-color: #28a745;
+  font-size: 18px;
+  background-color: var(--secondary-color);
   color: white;
   border: none;
-  cursor: pointer;
-  font-size: 18px;
   border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
-#finalizar-pedido:hover {
+.main__finalizar-pedido:hover {
   background-color: #218838;
   transform: scale(1.05);
 }
+
+/* Galería */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--light-bg-color);
+}
+
+.galeria iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.galeria iframe:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galeria iframe:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.galeria iframe:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.galeria iframe:nth-child(4) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.galeria iframe:nth-child(5) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.galeria iframe:nth-child(6) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Calendario */
+.horarios__table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: center;
+}
+
+.horarios__header {
+  background-color: var(--table-header-bg);
+  font-weight: bold;
+}
+
+.horarios__row {
+  background-color: var(--table-row-bg);
+  transition: background-color 0.3s ease;
+}
+
+.horarios__row:hover {
+  background-color: var(--table-row-hover-bg);
+}
+
+.horarios__data,
+.horarios__column {
+  border: 1px solid var(--table-border-color);
+  padding: 10px;
+}
+
+.horarios__data {
+  color: #333;
+}
+
+.horarios__column {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+.footer__text,
+.footer__contact {
+  margin: 5px 0;
+}
+
+.footer__contact-link {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer__contact-link:hover {
+  color: #0056b3;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+/*Responsive de 1024*/
+@media (max-width: 1024px) {
+  /* Header */
+  .header__nav-list {
+    gap: 10px;
+  }
+
+  .header__ordenar,
+  .header__filtrar {
+    flex-direction: column;
+  }
+
+  /* Listado de películas */
+  .main__lista-peliculas {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .pelicula {
+    width: 30%; 
+  }
+
+  .pelicula img {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 15px; 
+    width: 100%;
+  }
+
+  .pelicula button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  /* Modal */
+  .modal__content {
+    width: 90%; 
+    padding: 15px;
+  }
+
+  .modal__close {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  /* Carrito */
+  .main__carrito {
+    margin: 20px auto;
+    margin-left: 30px;
+    gap: 20px;
+  }
+
+  .main__carrito .pelicula {
+    width: 30%; 
+  }
+
+  .main__precio-total {
+    font-size: 20px;
+  }
+
+  /* Finalizar pedido */
+  .main__finalizar-pedido {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+
+  /* Galería */
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .galeria iframe {
+    height: 250px;
+  }
+
+  .galeria iframe:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .galeria iframe:nth-child(2),
+  .galeria iframe:nth-child(3),
+  .galeria iframe:nth-child(4),
+  .galeria iframe:nth-child(5),
+  .galeria iframe:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* Calendario */
+  .horarios__table {
+    font-size: 14px;
+  }
+
+  .horarios__data,
+  .horarios__column {
+    padding: 8px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 14px;
+  }
+
+  .footer__text,
+  .footer__contact {
+    margin: 10px 0;
+  }
+}
+
+
+/*responsive de 576*/
+
+@media (max-width: 576px) {
+  /* Header */
+  .header__nav-list {
+    gap: 8px;
+  }
+
+  .header__ordenar,
+  .header__filtrar {
+    flex-direction: column;
+  }
+
+  /* Listado de películas */
+  .main__lista-peliculas {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .pelicula {
+    width: 40%; 
+  }
+
+  .pelicula img {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 12px; 
+    width: 100%;
+  }
+
+  .pelicula button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* Modal */
+  .modal__content {
+    width: 95%; 
+    padding: 10px;
+  }
+
+  .modal__close {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  /* Carrito */
+  .main__carrito {
+    margin: 15px auto;
+    margin-left: 20px;
+    gap: 15px;
+  }
+
+  .main__carrito .pelicula {
+    width: 45%; 
+  }
+
+  .main__precio-total {
+    font-size: 18px;
+  }
+
+  /* Finalizar pedido */
+  .main__finalizar-pedido {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* Galería */
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .galeria iframe {
+    height: 200px;
+  }
+
+  .galeria iframe:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .galeria iframe:nth-child(2),
+  .galeria iframe:nth-child(3),
+  .galeria iframe:nth-child(4),
+  .galeria iframe:nth-child(5),
+  .galeria iframe:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* Calendario */
+  .horarios__table {
+    font-size: 12px;
+  }
+
+  .horarios__data,
+  .horarios__column {
+    padding: 6px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 12px;
+  }
+
+  .footer__text,
+  .footer__contact {
+    margin: 8px 0;
+  }
+}
+
 
 

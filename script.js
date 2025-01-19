@@ -211,7 +211,7 @@ function mostrarDetalles(pelicula) {
   modal.style.display = "flex";
 
   //cerrar el modal
-  modal.querySelector(".close").onclick = function () {
+  modal.querySelector(".modal__close").onclick = function () {
     modal.style.display = "none";
   };
 }
